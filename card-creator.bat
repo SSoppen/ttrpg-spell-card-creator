@@ -1,2 +1,2 @@
 @echo off
-python -m flask --app cardcreator run
+py -m flask --app cardcreator run
