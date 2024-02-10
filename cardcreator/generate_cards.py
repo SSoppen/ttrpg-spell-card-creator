@@ -5,7 +5,10 @@ import imgkit
 import jinja2
 
 # Define order and names of csv values to be zipped into named parameters later
-csv_order = ['title', 'name', 'level', 'range', 'casting_cost', 'description']
+csv_order = ['title', 'name', 'level', 'notes', 'school', 'description', 'sub_description', 'cast_time', 'range',
+             'components', 'duration'
+             ]
+
 # Path to wkhtmltoimage exe
 config = imgkit.config(wkhtmltoimage='C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe')
 
@@ -25,6 +28,7 @@ if __name__ == "__main__":
             parameters_dict = dict(zip(csv_order, row))
             rendered_card = template.render(**parameters_dict)
             imgkit.from_string(rendered_card,
-                               f'generated_cards/{parameters_dict["title"]}.jpg',
-                               config=config
+                               f'generated_cards/{parameters_dict["title"]}.png',
+                               config=config,
+                               options={'width': 775, 'height': 1075}
                                )

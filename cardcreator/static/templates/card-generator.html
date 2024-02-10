@@ -1,8 +1,143 @@
-<h1>{{title}}</h1>
-<p>{{name}}</p>
-<div>
-    {{level}}
-    {{range}}
-    {{casting_cost}}
-    {{description}}
-</div>
+<html>
+<body>
+    <div class="container">
+        <h1>{{ name }}</h1>
+        <p class="level-indicator">{{ level }}</p>
+        <div class="sub-header">
+            <strong class="notes">{{ notes }}</strong>
+            <strong class="school">{{ school }}</strong>
+        </div>
+        <div class="description">
+            <p>{{ description | safe }}</p>
+        </div>
+        <div>
+            {{ sub_description | safe }}
+        </div>
+        <div class="bottom-container">
+            <div class="bottom-container-div">
+                <span class="absolute top-left"><strong>Cast Time</strong><br>{{ cast_time }}</span>
+                <span class="absolute top-right"><strong>Range</strong><br>{{ range }}</span>
+            </div>
+            <br>
+            <br>
+            <div>
+                <span class="absolute bottom-left"><strong>Components</strong><br>{{ components }}</span>
+                <span class="absolute bottom-right"><strong>Duration</strong><br>{{ duration }}</span>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    /* noto-serif-regular - latin */
+    @font-face {
+      font-display: swap;
+      font-family: 'Noto Serif';
+      font-style: normal;
+      font-weight: 400;
+      src: url('../noto-serif-v23-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    html {
+        background-color: #e0c5b3;
+    }
+    div {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 25px;
+    }
+    .container {
+        position: relative;
+        margin-left: 25px;
+        margin-top: 25px;
+        padding: 0;
+        border: solid 5px;
+        border-radius: 20px;
+        width: 700px;
+        height: 1000px;
+
+        font-family: 'Noto Serif', serif;
+    }
+    h1 {
+        padding: 20px 0 0 20px;
+        margin-top: -12;
+        font-size: 66px;
+        margin-bottom: 55px;
+    }
+    .level-indicator {
+        position: absolute;
+        right: 40px;
+        top: -310px;
+        font-size: 250px;
+        font-weight: bold;
+        color: #a49083;
+    }
+    .sub-header {
+        font-size: 33px;
+        padding: 15px 0 0 0;
+        margin-bottom: -15;
+
+    }
+    .description {
+        position: relative;
+        margin-bottom: 40px;
+    }
+    .description:after {
+        content: '';
+        width: 550px;
+        height: 5px;
+        background: black;
+        position: absolute;
+        bottom: -24px;
+        left: 75px
+    }
+    .bottom-container {
+        position: absolute;
+        width: 610px;
+        height: 250px;
+        bottom: 20;
+        left: 20px;
+        border: solid 5px;
+        border-radius: 20px;
+        padding-top: 10px;
+    }
+    .notes {
+        padding-left: 20px;
+    }
+    .school {
+        padding-left: 200px;
+    }
+    .absolute {
+        position: absolute;
+        text-align: center;
+        font-size: 33px;
+        width: 300px;
+    }
+    .top-left {
+        top: 30;
+        left: 15;
+    }
+    .top-right {
+        top: 30;
+        right: -5;
+    }
+    .bottom-left {
+        bottom: 30;
+        left: 15;
+    }
+    .bottom-right {
+        bottom: 30;
+        right: -5;
+    }
+    .bottom-container-div:after {
+        content: '';
+        width: 5px;
+        height: 200px;
+        background: black;
+        position: absolute;
+        top: 30px;
+        left: 350px
+    }
+
+
+</style>
+</html>
